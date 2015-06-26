@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="c210129053a347b3b7592c16a9b0b5b5" Name="Diagram1">
+        <EntityTypeShape EntityType="Model.Goods" Width="1.625" PointX="1" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.GoodCategories" Width="1.625" PointX="2.875" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.GoodImages" Width="1.625" PointX="2.875" PointY="3" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Options" Width="1.625" PointX="2.875" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.OrderGoods" Width="1.5" PointX="12.5" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.ShopCars" Width="1.5" PointX="12.5" PointY="2.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Users" Width="1.5" PointX="5.125" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.UserBonus" Width="1.5" PointX="5.125" PointY="4.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.UserClicks" Width="1.5" PointX="6.875" PointY="4.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.UserReceipts" Width="1.5" PointX="6.875" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.UserSets" Width="1.5" PointX="8.625" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Orders" Width="1.5" PointX="10.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Administartors" Width="1.5" PointX="10.75" PointY="5" />
+        <EntityTypeShape EntityType="Model.UserIntegrals" Width="1.5" PointX="8.625" PointY="4.125" />
+        <EntityTypeShape EntityType="Model.Regions" Width="1.5" PointX="12.5" PointY="5.375" />
+        <EntityTypeShape EntityType="Model.GoodBrands" Width="1.625" PointX="1" PointY="5.375" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

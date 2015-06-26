@@ -1,0 +1,96 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="admin.master.cs" Inherits="AdminMaster" %>
+
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+<head runat="server">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>微商城数据管理中心</title>
+    <link href="/share/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="/share/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="/admin/share/css/admin.custom.css" rel="stylesheet" />
+    <script src="/share/js/jquery.1.11.2.min.js" type="text/javascript"></script>
+    <script src="/share/js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="/admin/share/js/admin.custom.js" type="text/javascript"></script>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <nav class="navbar navbar-default navbar-fixed-top">
+            <div class="container-fluid bg-primary">
+                <div class="navbar-header">
+                    <a href="javascript:;" class="navbar-brand text-white">微商城数据管理中心</a>
+                </div>
+                <div class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <h4 class="padding-right-15">
+                                <small class="text-white">
+                                    当前登录：<asp:Literal ID="LoginName" runat="server"></asp:Literal>
+                                </small>
+                            </h4>
+                        </li>
+                    </ul>
+                </div>
+            </div>   
+        </nav>
+        <div id="main" class="container-fluid">
+            <div class="row">
+                <div id="sidebar" class="col-sm-3 col-md-2 col-lg-2 sidebar">
+                    <div class="list-group">
+                        <a href="javascript:;" class="list-group-item active">用户管理</a>
+                        <a class="list-group-item" data-module="user" data-action="add">
+                            <span>添加新用户</span>
+                        </a>
+                        <a class="list-group-item" data-module="user" data-action="list">
+                            <span>用户列表</span>
+                        </a>
+                    </div>
+                    <div class="list-group">
+                        <a href="javascript:;" class="list-group-item active">商品管理</a>
+                        <a class="list-group-item" data-module="good/goods" data-action="add">
+                            <span>添加新商品</span>
+                        </a>
+                        <a class="list-group-item" data-module="good/goods" data-action="list">
+                            <span>商品列表</span>
+                        </a>
+                        <a class="list-group-item" data-module="good/category" data-action="list">
+                            <span>商品分类</span>
+                        </a>
+                        <a class="list-group-item" data-module="good/brand" data-action="list">
+                            <span>品牌管理</span>
+                        </a>
+                    </div>
+                    <div class="list-group">
+                        <a href="javascript:;" class="list-group-item active">订单管理</a>
+                        <a class="list-group-item" data-module="order/orders" data-action="list">
+                            <span>订单列表</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-sm-9 col-md-10 col-lg-10 content-warp">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <ol class="breadcrumb"">
+                                <li>
+                                    <a href="javascript:;">Home</a>
+                                </li>
+                                <li>
+                                    <a id="module" href="/admin/welcome.aspx">欢迎</a>
+                                </li>    
+                            </ol>
+                        </div>
+                        <div id="panel-body" class="panel-body">
+                            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                            </asp:ContentPlaceHolder>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</body>
+</html>

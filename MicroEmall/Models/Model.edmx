@@ -1,0 +1,782 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityType Name="wm_admins">
+          <Key>
+            <PropertyRef Name="admin_id" />
+          </Key>
+          <Property Name="admin_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="admin_roleId" Type="int" Nullable="false" />
+          <Property Name="admin_name" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="admin_pwd" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="admin_statusId" Type="int" Nullable="false" />
+          <Property Name="admin_date" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="wm_goods">
+          <Key>
+            <PropertyRef Name="g_id" />
+          </Key>
+          <Property Name="g_id" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="g_cid" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="g_bid" Type="varchar" MaxLength="20" />
+          <Property Name="g_name" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="g_oprice" Type="float" Nullable="false" />
+          <Property Name="g_pprice" Type="float" />
+          <Property Name="g_unit" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="g_desc" Type="varchar" MaxLength="4000" />
+          <Property Name="g_spec" Type="varchar" MaxLength="4000" />
+          <Property Name="g_service" Type="varchar" MaxLength="4000" />
+          <Property Name="g_inte" Type="int" Nullable="false" />
+          <Property Name="g_click" Type="int" Nullable="false" />
+          <Property Name="g_save" Type="int" Nullable="false" />
+          <Property Name="g_bonus" Type="int" Nullable="false" />
+          <Property Name="g_goldpool" Type="int" Nullable="false" />
+          <Property Name="g_statusId" Type="int" Nullable="false" />
+          <Property Name="g_addDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="wm_goods_brands">
+          <Key>
+            <PropertyRef Name="gb_id" />
+          </Key>
+          <Property Name="gb_id" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="gb_name" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="gb_logo" Type="varchar" MaxLength="300" />
+          <Property Name="gb_url" Type="varchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="wm_goods_categories">
+          <Key>
+            <PropertyRef Name="gc_id" />
+          </Key>
+          <Property Name="gc_id" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="gc_pid" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="gc_name" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="gc_level" Type="int" Nullable="false" />
+          <Property Name="gc_sort" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="wm_goods_images">
+          <Key>
+            <PropertyRef Name="gi_id" />
+          </Key>
+          <Property Name="gi_id" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="gi_gid" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="gi_url" Type="varchar" MaxLength="300" Nullable="false" />
+          <Property Name="gi_cover" Type="bit" Nullable="false" />
+          <Property Name="gi_addDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="wm_options">
+          <Key>
+            <PropertyRef Name="op_id" />
+          </Key>
+          <Property Name="op_id" Type="int" Nullable="false" />
+          <Property Name="op_name" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="op_group" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="op_value" Type="varchar" MaxLength="4000" />
+        </EntityType>
+        <EntityType Name="wm_orders">
+          <Key>
+            <PropertyRef Name="o_id" />
+          </Key>
+          <Property Name="o_id" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="o_uid" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="o_pvId" Type="int" Nullable="false" />
+          <Property Name="o_cityId" Type="int" Nullable="false" />
+          <Property Name="o_areaId" Type="int" Nullable="false" />
+          <Property Name="o_contact" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="o_address" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="o_phone" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="o_zipcode" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="o_payId" Type="int" Nullable="false" />
+          <Property Name="o_paid" Type="bit" Nullable="false" />
+          <Property Name="o_freight" Type="int" Nullable="false" />
+          <Property Name="o_message" Type="varchar" MaxLength="200" />
+          <Property Name="o_addDate" Type="datetime" Nullable="false" />
+          <Property Name="o_statusId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="wm_orders_goods">
+          <Key>
+            <PropertyRef Name="og_id" />
+          </Key>
+          <Property Name="og_id" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="og_oid" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="og_gid" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="og_price" Type="float" Nullable="false" />
+          <Property Name="og_count" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="wm_regions">
+          <Key>
+            <PropertyRef Name="region_id" />
+          </Key>
+          <Property Name="region_id" Type="int" Nullable="false" />
+          <Property Name="region_pid" Type="int" Nullable="false" />
+          <Property Name="region_name" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="region_level" Type="int" Nullable="false" />
+          <Property Name="region_code" Type="varchar" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <EntityType Name="wm_shopcar">
+          <Key>
+            <PropertyRef Name="car_id" />
+          </Key>
+          <Property Name="car_id" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="car_gid" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="car_uid" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="car_price" Type="float" Nullable="false" />
+          <Property Name="car_count" Type="int" Nullable="false" />
+          <Property Name="car_addDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="wm_users">
+          <Key>
+            <PropertyRef Name="u_id" />
+          </Key>
+          <Property Name="u_id" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="u_roleId" Type="int" Nullable="false" />
+          <Property Name="u_openId" Type="varchar" MaxLength="500" />
+          <Property Name="u_name" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="u_pwd" Type="varchar" MaxLength="300" Nullable="false" />
+          <Property Name="u_nickName" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="u_inte" Type="int" Nullable="false" />
+          <Property Name="u_image" Type="varchar" MaxLength="300" />
+          <Property Name="u_mobile" Type="varchar" MaxLength="20" />
+          <Property Name="u_bankCard" Type="varchar" MaxLength="30" />
+          <Property Name="u_statusId" Type="int" Nullable="false" />
+          <Property Name="u_addDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="wm_users_bonus">
+          <Key>
+            <PropertyRef Name="ub_id" />
+          </Key>
+          <Property Name="ub_id" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="ub_uid" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="ub_oid" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="ub_sum" Type="float" Nullable="false" />
+          <Property Name="ub_addDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="wm_users_clicks">
+          <Key>
+            <PropertyRef Name="uc_id" />
+          </Key>
+          <Property Name="uc_id" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="uc_pid" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="uc_cid" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="uc_gid" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="uc_addDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="wm_users_integrals">
+          <Key>
+            <PropertyRef Name="ui_id" />
+          </Key>
+          <Property Name="ui_id" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="ui_sid" Type="int" Nullable="false" />
+          <Property Name="ui_uid" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="ui_inte" Type="int" Nullable="false" />
+          <Property Name="ui_addDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="wm_users_receipts">
+          <Key>
+            <PropertyRef Name="ur_id" />
+          </Key>
+          <Property Name="ur_id" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="ur_uid" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="ur_pvId" Type="int" Nullable="false" />
+          <Property Name="ur_cityId" Type="int" Nullable="false" />
+          <Property Name="ur_areaId" Type="int" Nullable="false" />
+          <Property Name="ur_address" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="ur_contact" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="ur_phone" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="ur_zipcode" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="ur_addDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="wm_users_set">
+          <Key>
+            <PropertyRef Name="us_id" />
+          </Key>
+          <Property Name="us_id" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="us_tid" Type="int" Nullable="false" />
+          <Property Name="us_uid" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="us_gid" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="us_addDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="ModelStoreContainer">
+          <EntitySet Name="wm_admins" EntityType="Self.wm_admins" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="wm_goods" EntityType="Self.wm_goods" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="wm_goods_brands" EntityType="Self.wm_goods_brands" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="wm_goods_categories" EntityType="Self.wm_goods_categories" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="wm_goods_images" EntityType="Self.wm_goods_images" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="wm_options" EntityType="Self.wm_options" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="wm_orders" EntityType="Self.wm_orders" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="wm_orders_goods" EntityType="Self.wm_orders_goods" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="wm_regions" EntityType="Self.wm_regions" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="wm_shopcar" EntityType="Self.wm_shopcar" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="wm_users" EntityType="Self.wm_users" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="wm_users_bonus" EntityType="Self.wm_users_bonus" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="wm_users_clicks" EntityType="Self.wm_users_clicks" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="wm_users_integrals" EntityType="Self.wm_users_integrals" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="wm_users_receipts" EntityType="Self.wm_users_receipts" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="wm_users_set" EntityType="Self.wm_users_set" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Model" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityType Name="Goods">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false">
+          </Property>
+          <Property Name="CategoryId" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false">
+          </Property>
+          <Property Name="BrandId" Type="String" MaxLength="20" FixedLength="false" Unicode="false">
+          </Property>
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false">
+          </Property>
+          <Property Name="OriginalPrice" Type="Double" Nullable="false">
+          </Property>
+          <Property Name="PresentPrice" Type="Double">
+          </Property>
+          <Property Name="Unit" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false">
+          </Property>
+          <Property Name="Desc" Type="String" MaxLength="4000" FixedLength="false" Unicode="false">
+          </Property>
+          <Property Name="Spec" Type="String" MaxLength="4000" FixedLength="false" Unicode="false">
+          </Property>
+          <Property Name="Service" Type="String" MaxLength="4000" FixedLength="false" Unicode="false">
+          </Property>
+          <Property Name="Clicks" Type="Int32" Nullable="false">
+          </Property>
+          <Property Name="Saves" Type="Int32" Nullable="false">
+          </Property>
+          <Property Name="Bonus" Type="Int32" Nullable="false">
+          </Property>
+          <Property Name="GoldPool" Type="Int32" Nullable="false">
+          </Property>
+          <Property Name="StatusId" Type="Int32" Nullable="false" DefaultValue="503">
+          </Property>
+          <Property Name="AddDate" Type="DateTime" Nullable="false" Precision="3">
+          </Property>
+          <Property Name="Integral" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="GoodCategories">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false">
+          </Property>
+          <Property Name="ParentId" Type="String" MaxLength="20" FixedLength="false" Unicode="false" DefaultValue="root" Nullable="false">
+          </Property>
+          <Property Name="Name" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false">
+          </Property>
+          <Property Name="Level" Type="Int32" Nullable="false">
+          </Property>
+          <Property Name="Sort" Type="Int32" Nullable="false">
+          </Property>
+        </EntityType>
+        <EntityType Name="GoodImages">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false">
+          </Property>
+          <Property Name="GoodId" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false">
+          </Property>
+          <Property Name="URL" Type="String" MaxLength="300" FixedLength="false" Unicode="false" Nullable="false">
+          </Property>
+          <Property Name="IsCover" Type="Boolean" Nullable="false">
+          </Property>
+          <Property Name="AddDate" Type="DateTime" Nullable="false" Precision="3">
+          </Property>
+        </EntityType>
+        <EntityType Name="Options">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false">
+          </Property>
+          <Property Name="Name" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false">
+          </Property>
+          <Property Name="Group" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false">
+          </Property>
+          <Property Name="Value" Type="String" MaxLength="4000" FixedLength="false" Unicode="false">
+          </Property>
+        </EntityType>
+        <EntityType Name="OrderGoods">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false">
+          </Property>
+          <Property Name="OrderId" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false">
+          </Property>
+          <Property Name="GoodId" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false">
+          </Property>
+          <Property Name="Price" Type="Double" Nullable="false">
+          </Property>
+          <Property Name="Count" Type="Int32" Nullable="false">
+          </Property>
+        </EntityType>
+        <EntityType Name="ShopCars">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false">
+          </Property>
+          <Property Name="GoodId" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false">
+          </Property>
+          <Property Name="UserId" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false">
+          </Property>
+          <Property Name="Price" Type="Double" Nullable="false">
+          </Property>
+          <Property Name="Count" Type="Int32" Nullable="false">
+          </Property>
+          <Property Name="AddDate" Type="DateTime" Nullable="false" Precision="3">
+          </Property>
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false">
+            <Documentation>
+              <Summary>用户ID</Summary>
+              <LongDescription>用户ID</LongDescription>
+            </Documentation>
+          </Property>
+          <Property Name="RoleId" Type="Int32" Nullable="false">
+          </Property>
+          <Property Name="OpenId" Type="String" MaxLength="500" FixedLength="false" Unicode="false">
+          </Property>
+          <Property Name="UserName" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false">
+          </Property>
+          <Property Name="Password" Type="String" MaxLength="300" FixedLength="false" Unicode="false" Nullable="false">
+          </Property>
+          <Property Name="NickName" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false">
+          </Property>
+          <Property Name="Image" Type="String" MaxLength="300" FixedLength="false" Unicode="false">
+          </Property>
+          <Property Name="Mobile" Type="String" MaxLength="20" FixedLength="false" Unicode="false">
+          </Property>
+          <Property Name="BankCard" Type="String" MaxLength="30" FixedLength="false" Unicode="false">
+          </Property>
+          <Property Name="StatusId" Type="Int32" Nullable="false" DefaultValue="201">
+          </Property>
+          <Property Name="AddDate" Type="DateTime" Nullable="false" Precision="3">
+          </Property>
+          <Property Name="Integral" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UserBonus">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false">
+          </Property>
+          <Property Name="UserId" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false">
+          </Property>
+          <Property Name="OrderId" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false">
+          </Property>
+          <Property Name="BonusSum" Type="Double" Nullable="false">
+          </Property>
+          <Property Name="AddDate" Type="DateTime" Nullable="false" Precision="3">
+          </Property>
+        </EntityType>
+        <EntityType Name="UserClicks">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false">
+          </Property>
+          <Property Name="PromoterId" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false">
+          </Property>
+          <Property Name="GoodId" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false">
+          </Property>
+          <Property Name="AddDate" Type="DateTime" Nullable="false" Precision="3">
+          </Property>
+          <Property Name="CustomerId" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="UserReceipts">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false">
+          </Property>
+          <Property Name="UserId" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false">
+          </Property>
+          <Property Name="ProvinceId" Type="Int32" Nullable="false">
+          </Property>
+          <Property Name="CityId" Type="Int32" Nullable="false">
+          </Property>
+          <Property Name="AreaId" Type="Int32" Nullable="false">
+          </Property>
+          <Property Name="Address" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false">
+          </Property>
+          <Property Name="Contact" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false">
+          </Property>
+          <Property Name="Phone" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false">
+          </Property>
+          <Property Name="ZipCode" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false">
+          </Property>
+          <Property Name="AddDate" Type="DateTime" Nullable="false" Precision="3">
+          </Property>
+        </EntityType>
+        <EntityType Name="UserSets">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false">
+          </Property>
+          <Property Name="TypeId" Type="Int32" Nullable="false">
+          </Property>
+          <Property Name="UserId" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false">
+          </Property>
+          <Property Name="GoodId" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false">
+          </Property>
+          <Property Name="AddDate" Type="DateTime" Nullable="false" Precision="3">
+          </Property>
+        </EntityType>
+        <EntityType Name="Orders">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false">
+          </Property>
+          <Property Name="UserId" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false">
+          </Property>
+          <Property Name="ProvinceId" Type="Int32" Nullable="false">
+          </Property>
+          <Property Name="CityId" Type="Int32" Nullable="false">
+          </Property>
+          <Property Name="AreaId" Type="Int32" Nullable="false">
+          </Property>
+          <Property Name="Contact" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false">
+          </Property>
+          <Property Name="Address" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false">
+          </Property>
+          <Property Name="Phone" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false">
+          </Property>
+          <Property Name="ZipCode" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false">
+          </Property>
+          <Property Name="PayId" Type="Int32" Nullable="false">
+          </Property>
+          <Property Name="Freight" Type="Int32" Nullable="false">
+          </Property>
+          <Property Name="Message" Type="String" MaxLength="200" FixedLength="false" Unicode="false">
+          </Property>
+          <Property Name="AddDate" Type="DateTime" Nullable="false" Precision="3">
+          </Property>
+          <Property Name="StatusId" Type="Int32" Nullable="false" DefaultValue="601">
+          </Property>
+          <Property Name="Paid" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="WMContext" annotation:LazyLoadingEnabled="false">
+          <EntitySet Name="Goods" EntityType="Model.Goods">
+          </EntitySet>
+          <EntitySet Name="GoodCategories" EntityType="Model.GoodCategories">
+          </EntitySet>
+          <EntitySet Name="GoodImages" EntityType="Model.GoodImages">
+          </EntitySet>
+          <EntitySet Name="Options" EntityType="Model.Options">
+          </EntitySet>
+          <EntitySet Name="OrderGoods" EntityType="Model.OrderGoods">
+          </EntitySet>
+          <EntitySet Name="ShopCars" EntityType="Model.ShopCars">
+          </EntitySet>
+          <EntitySet Name="Users" EntityType="Model.Users">
+          </EntitySet>
+          <EntitySet Name="UserBonus" EntityType="Model.UserBonus">
+          </EntitySet>
+          <EntitySet Name="UserClicks" EntityType="Model.UserClicks">
+          </EntitySet>
+          <EntitySet Name="UserReceipts" EntityType="Model.UserReceipts">
+          </EntitySet>
+          <EntitySet Name="UserSets" EntityType="Model.UserSets">
+          </EntitySet>
+          <EntitySet Name="Orders" EntityType="Model.Orders">
+          </EntitySet>
+          <EntitySet Name="Administartors" EntityType="Model.Administartors" />
+          <EntitySet Name="UserIntegrals" EntityType="Model.UserIntegrals" />
+          <EntitySet Name="Regions" EntityType="Model.Regions" />
+          <EntitySet Name="GoodBrands" EntityType="Model.GoodBrands" />
+        </EntityContainer>
+        <EntityType Name="Administartors">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RoleId" Type="Int32" Nullable="false" />
+          <Property Name="UserName" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Password" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="AddDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="StatusId" Type="Int32" Nullable="false" DefaultValue="201" />
+        </EntityType>
+        <EntityType Name="UserIntegrals">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="SourceId" Type="Int32" Nullable="false" DefaultValue="451" />
+          <Property Name="UserId" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Integral" Type="Int32" Nullable="false" />
+          <Property Name="AddDate" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="Regions">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="ParentId" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Level" Type="Int32" Nullable="false" />
+          <Property Name="AreaCode" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="GoodBrands">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Logo" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="URL" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="WMContext">
+          <EntitySetMapping Name="Goods">
+            <EntityTypeMapping TypeName="Model.Goods">
+              <MappingFragment StoreEntitySet="wm_goods">
+                <ScalarProperty Name="Integral" ColumnName="g_inte" />
+                <ScalarProperty Name="Id" ColumnName="g_id" />
+                <ScalarProperty Name="CategoryId" ColumnName="g_cid" />
+                <ScalarProperty Name="BrandId" ColumnName="g_bid" />
+                <ScalarProperty Name="Name" ColumnName="g_name" />
+                <ScalarProperty Name="OriginalPrice" ColumnName="g_oprice" />
+                <ScalarProperty Name="PresentPrice" ColumnName="g_pprice" />
+                <ScalarProperty Name="Unit" ColumnName="g_unit" />
+                <ScalarProperty Name="Desc" ColumnName="g_desc" />
+                <ScalarProperty Name="Spec" ColumnName="g_spec" />
+                <ScalarProperty Name="Service" ColumnName="g_service" />
+                <ScalarProperty Name="Clicks" ColumnName="g_click" />
+                <ScalarProperty Name="Saves" ColumnName="g_save" />
+                <ScalarProperty Name="Bonus" ColumnName="g_bonus" />
+                <ScalarProperty Name="GoldPool" ColumnName="g_goldpool" />
+                <ScalarProperty Name="StatusId" ColumnName="g_statusId" />
+                <ScalarProperty Name="AddDate" ColumnName="g_addDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GoodCategories">
+            <EntityTypeMapping TypeName="Model.GoodCategories">
+              <MappingFragment StoreEntitySet="wm_goods_categories">
+                <ScalarProperty Name="Id" ColumnName="gc_id" />
+                <ScalarProperty Name="ParentId" ColumnName="gc_pid" />
+                <ScalarProperty Name="Name" ColumnName="gc_name" />
+                <ScalarProperty Name="Level" ColumnName="gc_level" />
+                <ScalarProperty Name="Sort" ColumnName="gc_sort" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GoodImages">
+            <EntityTypeMapping TypeName="Model.GoodImages">
+              <MappingFragment StoreEntitySet="wm_goods_images">
+                <ScalarProperty Name="Id" ColumnName="gi_id" />
+                <ScalarProperty Name="GoodId" ColumnName="gi_gid" />
+                <ScalarProperty Name="URL" ColumnName="gi_url" />
+                <ScalarProperty Name="IsCover" ColumnName="gi_cover" />
+                <ScalarProperty Name="AddDate" ColumnName="gi_addDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Options">
+            <EntityTypeMapping TypeName="Model.Options">
+              <MappingFragment StoreEntitySet="wm_options">
+                <ScalarProperty Name="Id" ColumnName="op_id" />
+                <ScalarProperty Name="Name" ColumnName="op_name" />
+                <ScalarProperty Name="Group" ColumnName="op_group" />
+                <ScalarProperty Name="Value" ColumnName="op_value" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OrderGoods">
+            <EntityTypeMapping TypeName="Model.OrderGoods">
+              <MappingFragment StoreEntitySet="wm_orders_goods">
+                <ScalarProperty Name="Id" ColumnName="og_id" />
+                <ScalarProperty Name="OrderId" ColumnName="og_oid" />
+                <ScalarProperty Name="GoodId" ColumnName="og_gid" />
+                <ScalarProperty Name="Price" ColumnName="og_price" />
+                <ScalarProperty Name="Count" ColumnName="og_count" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ShopCars">
+            <EntityTypeMapping TypeName="Model.ShopCars">
+              <MappingFragment StoreEntitySet="wm_shopcar">
+                <ScalarProperty Name="Id" ColumnName="car_id" />
+                <ScalarProperty Name="GoodId" ColumnName="car_gid" />
+                <ScalarProperty Name="UserId" ColumnName="car_uid" />
+                <ScalarProperty Name="Price" ColumnName="car_price" />
+                <ScalarProperty Name="Count" ColumnName="car_count" />
+                <ScalarProperty Name="AddDate" ColumnName="car_addDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="Model.Users">
+              <MappingFragment StoreEntitySet="wm_users">
+                <ScalarProperty Name="Integral" ColumnName="u_inte" />
+                <ScalarProperty Name="Id" ColumnName="u_id" />
+                <ScalarProperty Name="RoleId" ColumnName="u_roleId" />
+                <ScalarProperty Name="OpenId" ColumnName="u_openId" />
+                <ScalarProperty Name="UserName" ColumnName="u_name" />
+                <ScalarProperty Name="Password" ColumnName="u_pwd" />
+                <ScalarProperty Name="NickName" ColumnName="u_nickName" />
+                <ScalarProperty Name="Image" ColumnName="u_image" />
+                <ScalarProperty Name="Mobile" ColumnName="u_mobile" />
+                <ScalarProperty Name="BankCard" ColumnName="u_bankCard" />
+                <ScalarProperty Name="StatusId" ColumnName="u_statusId" />
+                <ScalarProperty Name="AddDate" ColumnName="u_addDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserBonus">
+            <EntityTypeMapping TypeName="Model.UserBonus">
+              <MappingFragment StoreEntitySet="wm_users_bonus">
+                <ScalarProperty Name="Id" ColumnName="ub_id" />
+                <ScalarProperty Name="UserId" ColumnName="ub_uid" />
+                <ScalarProperty Name="OrderId" ColumnName="ub_oid" />
+                <ScalarProperty Name="BonusSum" ColumnName="ub_sum" />
+                <ScalarProperty Name="AddDate" ColumnName="ub_addDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserClicks">
+            <EntityTypeMapping TypeName="Model.UserClicks">
+              <MappingFragment StoreEntitySet="wm_users_clicks">
+                <ScalarProperty Name="CustomerId" ColumnName="uc_cid" />
+                <ScalarProperty Name="Id" ColumnName="uc_id" />
+                <ScalarProperty Name="PromoterId" ColumnName="uc_pid" />
+                <ScalarProperty Name="GoodId" ColumnName="uc_gid" />
+                <ScalarProperty Name="AddDate" ColumnName="uc_addDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserReceipts">
+            <EntityTypeMapping TypeName="Model.UserReceipts">
+              <MappingFragment StoreEntitySet="wm_users_receipts">
+                <ScalarProperty Name="Id" ColumnName="ur_id" />
+                <ScalarProperty Name="UserId" ColumnName="ur_uid" />
+                <ScalarProperty Name="ProvinceId" ColumnName="ur_pvId" />
+                <ScalarProperty Name="CityId" ColumnName="ur_cityId" />
+                <ScalarProperty Name="AreaId" ColumnName="ur_areaId" />
+                <ScalarProperty Name="Address" ColumnName="ur_address" />
+                <ScalarProperty Name="Contact" ColumnName="ur_contact" />
+                <ScalarProperty Name="Phone" ColumnName="ur_phone" />
+                <ScalarProperty Name="ZipCode" ColumnName="ur_zipcode" />
+                <ScalarProperty Name="AddDate" ColumnName="ur_addDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserSets">
+            <EntityTypeMapping TypeName="Model.UserSets">
+              <MappingFragment StoreEntitySet="wm_users_set">
+                <ScalarProperty Name="Id" ColumnName="us_id" />
+                <ScalarProperty Name="TypeId" ColumnName="us_tid" />
+                <ScalarProperty Name="UserId" ColumnName="us_uid" />
+                <ScalarProperty Name="GoodId" ColumnName="us_gid" />
+                <ScalarProperty Name="AddDate" ColumnName="us_addDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Orders">
+            <EntityTypeMapping TypeName="Model.Orders">
+              <MappingFragment StoreEntitySet="wm_orders">
+                <ScalarProperty Name="Paid" ColumnName="o_paid" />
+                <ScalarProperty Name="Id" ColumnName="o_id" />
+                <ScalarProperty Name="UserId" ColumnName="o_uid" />
+                <ScalarProperty Name="ProvinceId" ColumnName="o_pvId" />
+                <ScalarProperty Name="CityId" ColumnName="o_cityId" />
+                <ScalarProperty Name="AreaId" ColumnName="o_areaId" />
+                <ScalarProperty Name="Contact" ColumnName="o_contact" />
+                <ScalarProperty Name="Address" ColumnName="o_address" />
+                <ScalarProperty Name="Phone" ColumnName="o_phone" />
+                <ScalarProperty Name="ZipCode" ColumnName="o_zipcode" />
+                <ScalarProperty Name="PayId" ColumnName="o_payId" />
+                <ScalarProperty Name="Freight" ColumnName="o_freight" />
+                <ScalarProperty Name="Message" ColumnName="o_message" />
+                <ScalarProperty Name="AddDate" ColumnName="o_addDate" />
+                <ScalarProperty Name="StatusId" ColumnName="o_statusId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Administartors">
+            <EntityTypeMapping TypeName="Model.Administartors">
+              <MappingFragment StoreEntitySet="wm_admins">
+                <ScalarProperty Name="StatusId" ColumnName="admin_statusId" />
+                <ScalarProperty Name="AddDate" ColumnName="admin_date" />
+                <ScalarProperty Name="Password" ColumnName="admin_pwd" />
+                <ScalarProperty Name="UserName" ColumnName="admin_name" />
+                <ScalarProperty Name="RoleId" ColumnName="admin_roleId" />
+                <ScalarProperty Name="Id" ColumnName="admin_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserIntegrals">
+            <EntityTypeMapping TypeName="Model.UserIntegrals">
+              <MappingFragment StoreEntitySet="wm_users_integrals">
+                <ScalarProperty Name="AddDate" ColumnName="ui_addDate" />
+                <ScalarProperty Name="Integral" ColumnName="ui_inte" />
+                <ScalarProperty Name="UserId" ColumnName="ui_uid" />
+                <ScalarProperty Name="SourceId" ColumnName="ui_sid" />
+                <ScalarProperty Name="Id" ColumnName="ui_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Regions">
+            <EntityTypeMapping TypeName="Model.Regions">
+              <MappingFragment StoreEntitySet="wm_regions">
+                <ScalarProperty Name="AreaCode" ColumnName="region_code" />
+                <ScalarProperty Name="Level" ColumnName="region_level" />
+                <ScalarProperty Name="Name" ColumnName="region_name" />
+                <ScalarProperty Name="ParentId" ColumnName="region_pid" />
+                <ScalarProperty Name="Id" ColumnName="region_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GoodBrands">
+            <EntityTypeMapping TypeName="Model.GoodBrands">
+              <MappingFragment StoreEntitySet="wm_goods_brands">
+                <ScalarProperty Name="URL" ColumnName="gb_url" />
+                <ScalarProperty Name="Logo" ColumnName="gb_logo" />
+                <ScalarProperty Name="Name" ColumnName="gb_name" />
+                <ScalarProperty Name="Id" ColumnName="gb_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="false" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="无" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>
