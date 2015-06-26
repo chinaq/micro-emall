@@ -112,6 +112,7 @@
     <Compile Include="Utility\Extend\StringExtend.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="DLL\AspNetPager.dll" />
     <Content Include="DLL\DocumentFormat.OpenXml.dll" />
     <Content Include="DLL\Microsoft.Http.dll" />
     <Content Include="DLL\Microsoft.Http.Extensions.dll" />
